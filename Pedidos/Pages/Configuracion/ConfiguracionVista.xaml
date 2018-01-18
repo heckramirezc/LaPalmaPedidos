@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Pedidos.Pages.Configuracion.ConfiguracionVista" 
+    Title="{Binding Title}"
+                         Icon="{Binding Icon}"
+             BackgroundColor="#FFF">
+	<ContentPage.Content>
+        <StackLayout
+            BackgroundColor="Aqua">
+            <StackLayout.Children>
+                <Image 
+                BackgroundColor="Red"
+                    Source="iDesarrollo"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"></Image>
+            </StackLayout.Children>
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>
