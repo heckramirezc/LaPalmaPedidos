@@ -2,6 +2,7 @@
 using Pedidos.Helpers;
 using Pedidos.Pages.Acceso;
 using Pedidos.Pages.Menu;
+using Pedidos.Data;
 
 namespace Pedidos
 {
@@ -14,13 +15,13 @@ namespace Pedidos
                 {MainPage = new InicioSesion();}
             else
                 {IniciarSesion();}
-            MessagingCenter.Subscribe<InicioSesion>(this, "Autenticado", (sender) =>
+            MessagingCenter.Subscribe<InicioSesion>(this, Constantes.Autenticado, (sender) =>
                 {Sincronizacion(sender.Logeado);});
 
-            MessagingCenter.Subscribe<RootPagina>(this, "noAutenticado", (sender) =>
+            MessagingCenter.Subscribe<RootPagina>(this, Constantes.NoAutenticado, (sender) =>
                 {CerrarSesion();});
 
-            MessagingCenter.Subscribe<Sincronizador>(this, "Sincronizado", (sender) =>
+            MessagingCenter.Subscribe<Sincronizador>(this, Constantes.Sincronizado, (sender) =>
                 {IniciarSesion();});
         }
 

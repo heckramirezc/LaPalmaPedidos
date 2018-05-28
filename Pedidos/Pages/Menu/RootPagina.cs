@@ -8,6 +8,8 @@ using Pedidos.ViewModels.Configuracion;
 using Pedidos.ViewModels.Historial;
 using Pedidos.ViewModels.Pedidos;
 using Xamarin.Forms;
+using Pedidos.Common;
+using Pedidos.Data;
 
 namespace Pedidos.Pages.Menu
 {
@@ -19,17 +21,12 @@ namespace Pedidos.Pages.Menu
 
         public RootPagina()
         {
-            Title = "Pedidos";
-            BackgroundColor = Color.FromHex("f7efd9");
+            Title = StringResources.MenuTitle;
+            BackgroundColor = ColorResources.MenuBackground;
             menu.Menus.ItemSelected += Menus_ItemSelected;
             Master = menu;
             menuAnterior = MenuTipo.Historial;
-            NavegarA(MenuTipo.NuevoPedido);
-            MessagingCenter.Subscribe<Menu>(this, "isPresented", (sender) =>
-            {
-                IsPresented = false;
-            });
-            
+            NavegarA(MenuTipo.NuevoPedido);            
         }
 
         private void Menus_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -51,7 +48,7 @@ namespace Pedidos.Pages.Menu
                 {
                     if ((Device.OS == TargetPlatform.iOS) || (Device.OS == TargetPlatform.Android))
                     {
-                        MessagingCenter.Send<RootPagina>(this, "noAutenticado");
+                        MessagingCenter.Send<RootPagina>(this, Constantes.NoAutenticado);
                     }
                 }
             }
@@ -78,11 +75,6 @@ namespace Pedidos.Pages.Menu
             {
                 case MenuTipo.NuevoPedido:
                     {
-                        if (Device.OS == TargetPlatform.Android)
-                        {
-                            MessagingCenter.Send<RootPagina>(this, "Unsubscribe");
-                            nuevoPedido = null;
-                        }
                         if (nuevoPedido != null)
                             return nuevoPedido;
                         var modeloVista = new NuevoPedidoVistaModelo() { Navigation = Navigation };
@@ -107,7 +99,7 @@ namespace Pedidos.Pages.Menu
                     }                
             }
 
-            throw new NotImplementedException("No se reconoce el menu: " + opcion.ToString());
+            throw new NotImplementedException(Constantes.MenuException + opcion.ToString());
         }
 
 
@@ -118,7 +110,7 @@ namespace Pedidos.Pages.Menu
                 base.OnAppearing();
                 if ((Device.OS == TargetPlatform.iOS) || (Device.OS == TargetPlatform.Android))
                 {
-                    MessagingCenter.Send<RootPagina>(this, "noAutenticado");
+                    MessagingCenter.Send<RootPagina>(this, Constantes.NoAutenticado);
                 }
             }
         }

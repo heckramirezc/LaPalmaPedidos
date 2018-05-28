@@ -66,6 +66,14 @@
     <Compile Include="ViewModels\Pedidos\NuevoPedidoVistaModelo.cs" />
     <Compile Include="ViewModels\Historial\HistorialVistaModelo.cs" />
     <Compile Include="ViewModels\Configuracion\ConfiguracionVistaModelo.cs" />
+    <Compile Include="Common\ColorResources.cs" />
+    <Compile Include="Common\StringResources.cs" />
+    <Compile Include="Common\FontResources.cs" />
+    <Compile Include="Common\ImageResources.cs" />
+    <Compile Include="Common\URIResources.cs" />
+    <Compile Include="Common\PaddingResources.cs" />
+    <Compile Include="Data\Constantes.cs" />
+    <Compile Include="Common\DecimalResources.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -103,6 +111,7 @@
     <Folder Include="ViewModels\Configuracion\" />
     <Folder Include="ViewModels\Historial\" />
     <Folder Include="ViewModels\Pedidos\" />
+    <Folder Include="Common\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />

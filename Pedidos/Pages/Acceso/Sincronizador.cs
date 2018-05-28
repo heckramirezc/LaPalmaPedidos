@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Pedidos.Data;
+using Pedidos.Common;
 
 namespace Pedidos.Pages.Acceso
 {
@@ -26,14 +28,14 @@ namespace Pedidos.Pages.Acceso
                 TextColor = Color.Black,
                 HorizontalTextAlignment = TextAlignment.Center,
                 VerticalTextAlignment = TextAlignment.Center,
-                FontSize = 16,
-                //FontFamily = Device.OnPlatform("OpenSans", "OpenSans-Regular", null),
+                FontSize = DecimalResources.LabelFontSize,
+                FontFamily = FontResources.LabelFont,
             };
 
             if (!logeado)
-                Mensaje.Text = "Estamos descargando los datos por primera vez. Esto puede tardar varios minutos.";
+                Mensaje.Text = StringResources.SincronizadorMensaje1;
             else
-                Mensaje.Text = "Estamos actualizando los datos. Esto tardara un momento.";
+                Mensaje.Text = StringResources.SincronizadorMensaje2;
 
             Content = new StackLayout
             {
@@ -47,7 +49,7 @@ namespace Pedidos.Pages.Acceso
 
         async Task Sincronizacion()
         {            
-            MessagingCenter.Send<Sincronizador>(this, "Sincronizado");
+            MessagingCenter.Send<Sincronizador>(this, Constantes.Sincronizado);
         }
 
         protected async override void OnAppearing()

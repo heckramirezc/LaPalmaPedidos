@@ -1,6 +1,8 @@
 ﻿using System;
 using Xamarin.Forms;
 using Pedidos.Helpers;
+using Pedidos.Data;
+using Pedidos.Common;
 
 namespace Pedidos.Pages.Acceso
 {
@@ -13,14 +15,14 @@ namespace Pedidos.Pages.Acceso
         {
             login = new Button()
             {                
-                Text = "INGRESAR",
-                TextColor = Color.FromHex("2AB4EE"),
-                //FontFamily = Device.OnPlatform("OpenSans-ExtraBold", "OpenSans-ExtraBold", null),
-                FontSize = 20,
+                Text = StringResources.LoginIngresar,
+                TextColor = ColorResources.LoginTextIngresar,
+                FontFamily = FontResources.ButtonFont,
+                FontSize = DecimalResources.ButtonFontSize,
                 HorizontalOptions = LayoutOptions.Center,
-                BackgroundColor = Color.FromHex("ffffff"),
-                WidthRequest = 300,
-                HeightRequest = 50
+                BackgroundColor = ColorResources.LoginBackgroundIngresar,
+                WidthRequest = DecimalResources.ButtonWidthRequest,
+                HeightRequest = DecimalResources.ButtonHeightRequest
             };
             login.Clicked += Login_Clicked;
             Content = new StackLayout
@@ -36,8 +38,8 @@ namespace Pedidos.Pages.Acceso
 
         void Login_Clicked(object sender, EventArgs e)
         {
-            Settings.session_Session_Token = "1";
-            MessagingCenter.Send<InicioSesion>(this, "Autenticado");
+            Settings.session_Session_Token = Constantes.TokenBeta;
+            MessagingCenter.Send<InicioSesion>(this, Constantes.Autenticado);
         }
     }
 }

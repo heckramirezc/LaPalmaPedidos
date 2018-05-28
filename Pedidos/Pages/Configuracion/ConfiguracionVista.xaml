@@ -4,8 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="Pedidos.Pages.Configuracion.ConfiguracionVista" 
     Title="{Binding Title}"
-                         Icon="{Binding Icon}"
-             BackgroundColor="#FFF">
+    Icon="{Binding Icon}"
+    BackgroundColor="#FFF">
 	<ContentPage.Content>
         <StackLayout
             BackgroundColor="Aqua">

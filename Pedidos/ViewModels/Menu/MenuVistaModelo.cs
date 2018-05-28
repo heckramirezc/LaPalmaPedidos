@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Pedidos.Models.Menu;
+using Pedidos.Common;
 
 namespace Pedidos.ViewModels.Menu
 {
@@ -10,35 +11,35 @@ namespace Pedidos.ViewModels.Menu
         public ObservableCollection<Menus> Menus { get; set; }
         public MenuVistaModelo()
         {
-            Title = "Pedidos";
+            Title = StringResources.MenuTitle;
             Menus = new ObservableCollection<Menus>();
             Menus.Add(new Menus
             {
-                Id = 0,
-                Title = "Nuevo Pedido",
+                Id = DecimalResources.Menu1,
+                Title = StringResources.Menu1,
                 MenuTipo = MenuTipo.NuevoPedido,
-                Icon = "iCaja.png"
+                Icon = ImageResources.Menu1
             });
             Menus.Add(new Menus
             {
-                Id = 1,
-                Title = "Historial",
+                Id = DecimalResources.Menu2,
+                Title = StringResources.Menu2,
                 MenuTipo = MenuTipo.Historial,
-                Icon = "iCaja.png"
+                Icon = ImageResources.Menu2
             });
             Menus.Add(new Menus
             {
-                Id = 2,
-                Title = "Configuración",
+                Id = DecimalResources.Menu3,
+                Title = StringResources.Menu3,
                 MenuTipo = MenuTipo.Configuracion,
-                Icon = "iCaja.png"
+                Icon = ImageResources.Menu3
             });
             Menus.Add(new Menus
             {
-                Id = 3,
-                Title = "Salir",
+                Id = DecimalResources.Menu4,
+                Title = StringResources.Menu4,
                 MenuTipo = MenuTipo.Salir,
-                Icon = "iCaja.png"
+                Icon = ImageResources.Menu4
             });
         }
     }

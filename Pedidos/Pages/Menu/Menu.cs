@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using Xamarin.Forms;
 using Pedidos.ViewModels.Menu;
+using Pedidos.Common;
 
 namespace Pedidos.Pages.Menu
 {
@@ -11,8 +12,8 @@ namespace Pedidos.Pages.Menu
         private MenuVistaModelo modeloVista;
         public Menu()
         {
-            Icon = "menu.png";
-            Title = "Pedidos";
+            Icon = ImageResources.MenuIcon;
+            Title = StringResources.MenuTitle;
             BindingContext = modeloVista = new MenuVistaModelo();
             BackgroundColor = Color.White;
             Menus = new ListView
